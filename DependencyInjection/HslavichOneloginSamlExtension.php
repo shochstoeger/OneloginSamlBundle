@@ -16,7 +16,8 @@ class HslavichOneloginSamlExtension extends Extension
     {
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
-
+        $configs = $container->resolveEnvPlaceholders($configs, true);
+        
         $loader = new PhpFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.php');
 
