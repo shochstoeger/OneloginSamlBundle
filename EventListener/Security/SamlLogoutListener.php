@@ -28,7 +28,7 @@ class SamlLogoutListener
         } catch (\OneLogin\Saml2\Error $e) {
             if (!empty($this->samlAuth->getSLOurl())) {
                 $sessionIndex = $token->hasAttribute('sessionIndex') ? $token->getAttribute('sessionIndex') : null;
-                $this->samlAuth->logout(null, array(), $token->getUser(), $sessionIndex);
+                $this->samlAuth->logout(null, array(), $this->samlAuth->getNameId(), $sessionIndex);
             }
         }
     }
