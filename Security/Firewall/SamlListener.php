@@ -52,6 +52,7 @@ class SamlListener extends AbstractAuthenticationListener
             $attributes = $this->oneLoginAuth->getAttributes();
         }
         $attributes['sessionIndex'] = $this->oneLoginAuth->getSessionIndex();
+        $attributes['nameId'] = $this->oneLoginAuth->getNameId();
         $token = new SamlToken();
         $token->setAttributes($attributes);
 
