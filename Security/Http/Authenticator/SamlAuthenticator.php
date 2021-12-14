@@ -147,6 +147,7 @@ class SamlAuthenticator implements AuthenticatorInterface, AuthenticationEntryPo
             $attributes = $this->oneLoginAuth->getAttributes();
         }
         $attributes['sessionIndex'] = $this->oneLoginAuth->getSessionIndex();
+        $attributes['nameId'] = $this->oneLoginAuth->getNameId();
 
         return $attributes;
     }
